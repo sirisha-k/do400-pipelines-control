@@ -1,19 +1,21 @@
- {
-    AGENT {
-        NODE {
+pipeline {
+    agent {
+        node {
             label 'nodejs'
         }
     }
-    STAGES {
-        STAGE('bACKEND tESTS') {
-            STEPS {
-                SH 'NODE ./BACKEND/TEST.JS'
+    stages {
+        stage('Backend Tests') {
+            steps {
+                sh 'node ./backend/test.js'
             }
         }
-        STAGE('fRONTEND tESTS') {
-            STEPS {
-                SH 'NODE ./FRONTEND/TEST.JS'
+        stage('Frontend Tests') {
+            steps {
+                sh 'node ./frontend/test.js'
             }
         }
     }
 }
+
+       
