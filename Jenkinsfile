@@ -1,24 +1,19 @@
-node('nodejs') {
-
-    stage('Checkout') {
-
-        git branch: 'main',
-
-        url: 'https://github.com/sirisha-k/do400-pipelines-control'
-
+PIPELINE {
+    AGENT {
+        NODE {
+            LABEL 'NODEJS'
+        }
     }
-
-    stage('Backend Tests') {
-
-        sh 'node ./backend/test.js'
-
+    STAGES {
+        STAGE('bACKEND tESTS') {
+            STEPS {
+                SH 'NODE ./BACKEND/TEST.JS'
+            }
+        }
+        STAGE('fRONTEND tESTS') {
+            STEPS {
+                SH 'NODE ./FRONTEND/TEST.JS'
+            }
+        }
     }
-
-    stage('Frontend Tests') {
-
-     
-        sh 'node ./frontend/test.js'
-
-    }
-
 }
