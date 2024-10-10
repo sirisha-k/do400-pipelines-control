@@ -1,7 +1,7 @@
-PIPELINE {
+ {
     AGENT {
         NODE {
-            LABEL 'NODEJS'
+            label 'nodejs'
         }
     }
     STAGES {
